@@ -7,45 +7,66 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	lickitysplit(array, 0, size - 1, size);
+	size_t lo = 0;
+	size_t hi = size - 1;
+
+	lickity_split(array, lo, hi, size);
 }
 
-void lickitysplit(int *array, size_t lo, size_t hi, size_t size)
+/**
+ * lickity_split - recursively quicksort with Lomuto partition
+ *
+ * @array: array to sort
+ * @lo: starting index
+ * @hi: ending index
+ * @size: size of array
+ *
+ * Return: sorted array
+ */
+int *lickity_split(int *array, int lo, int hi, int size)
 {
-	int pie;
+	int i, j = lo, pie = array[hi];
 
-	if (lo < hi)
+	if (lo <= hi)
 	{
-		pie = partition(array, lo, hi, size);
-		lickitysplit(array, lo, pie - 1, size);
-		lickitysplit(array, pie + 1, hi, size);
-	}
-}
-
-int partition(int *array, size_t lo, size_t hi, size_t size)
-{
-	int pivot = array[hi];
-	size_t j, i = (lo - 1);
-
-	for (j = lo; j <= hi; j++)
-	{
-		if (array[j] <= pivot)
+		for (i = lo; i < hi; i++)
 		{
-			i++;
-			swap(array, array[i], array[j], size);
+			if (array[i] <= pie)
+			{
+				if (i != j)
+				{
+					freaky_friday(array, i, j);
+					print_array(array, size);
+				}
+				j++;
+			}
 		}
+
+		if (j != hi)
+		{
+			freaky_friday(array, hi, j);
+			print_array(array, size);
+		}
+
+		lickity_split(array, lo, j - 1, size);
+		lickity_split(array, j + 1, hi, size);
 	}
 
-	swap(array, array[i + 1], array[hi], size);
-	return (i + 1);
+	return (array);
 }
 
-void swap(int *array, size_t x, size_t y, size_t size)
+/**
+ * freaky_friday - swaps elements of an array
+ *
+ * @array: array
+ * @jamie: thing 1
+ * @lindsay: thing 2
+ */
+void freaky_friday(int *array, int jamie, int lindsay)
 {
 	int tmp;
 
-	tmp = array[x];
-	array[x] = array[y];
-	array[y] = tmp;
-	print_array(array, size);
+	tmp = array[jamie];
+	array[jamie] = array[lindsay];
+	array[lindsay] = tmp;
 }
