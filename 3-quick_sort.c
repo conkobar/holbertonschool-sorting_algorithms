@@ -7,10 +7,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	size_t lo = 0;
-	size_t hi = size - 1;
-
-	lickity_split(array, lo, hi, size);
+	lickity_split(array, 0, (size - 1), size);
 }
 
 /**
@@ -25,10 +22,13 @@ void quick_sort(int *array, size_t size)
  */
 int *lickity_split(int *array, int lo, int hi, int size)
 {
-	int i, j = lo, pie = array[hi];
+	int i, j, pie;
 
 	if (lo <= hi)
 	{
+		j = lo;
+		pie = array[hi];
+
 		for (i = lo; i < hi; i++)
 		{
 			if (array[i] <= pie)
