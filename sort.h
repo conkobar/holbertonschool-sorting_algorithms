@@ -30,4 +30,11 @@ void quick_sort(int *array, size_t size);
 int *lickity_split(int *array, int lo, int hi, int size);
 void freaky_friday(int *array, int jamie, int lindsay);
 
+/* Phi Sig Functions */
+void merge_sort(int *array, size_t size);
+void print_my_array(int *array, int start, int end);
+void copy_array(int *array, int start, int end, int *tmp_arr);
+void recur_split(int *tmp_arr, int start, int end, int *array);
+void time_to_merge(int *array, int start, int mid, int end, int *tmp_arr);
+
 #endif /* SORT */
