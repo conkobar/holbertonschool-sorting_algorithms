@@ -37,4 +37,8 @@ void copy_array(int *array, int start, int end, int *tmp_arr);
 void recur_split(int *tmp_arr, int start, int end, int *array);
 void time_to_merge(int *array, int start, int mid, int end, int *tmp_arr);
 
+void swap(int *a, int *b);
+void heapify(int *arr, int size_int, int i, size_t size);
+void heap_sort(int *array, size_t size);
+
 #endif /* SORT */
