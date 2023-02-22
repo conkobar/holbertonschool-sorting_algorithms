@@ -41,4 +41,8 @@ void swap(int *a, int *b);
 void heapify(int *arr, int size_int, int i, size_t size);
 void heap_sort(int *array, size_t size);
 
+int getMax(int *array, size_t size);
+void countSort(int *array, size_t size, int exp, int *tmp, int *countArray);
+void radix_sort(int *array, size_t size);
+
 #endif /* SORT */
